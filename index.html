@@ -6,15 +6,28 @@
 
     <link href="default.css" rel="stylesheet" />
 </head>
-<body id="root">
-    <div id="sourceDiv" style="visibility: hidden;">
-        <img id="source" />
+<body>
+
+    <div>
+        <input type="file" id="fileSelect" />
     </div>
-    <div id="targetDiv">
-        <canvas id="target"></canvas>
+
+    <div class="preview-container">
+        <div id="preview-loader" class="loader hidden"><div class="spinner"></div></div>
+        <img id="preview" class="auto-image" height="250" />
     </div>
-    <div id="log">Processing...</div>
-    <button id="go">Go!</button>
+
+    <div class="controls">
+        <button id="process-with">Process (With)</button>
+        <button id="process-without">Process (Without)</button>
+    </div>
+
+    <div class="result-container">
+        <div id="result-loader" class="loader hidden"><div class="spinner"></div></div>
+        <canvas id="result"></canvas>
+    </div>
+
+
 </body>
 
 <script src="tools.js"></script>
