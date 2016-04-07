@@ -3,39 +3,38 @@
 <head>
     <meta charset="utf-8" />
     <title>PictureWorker</title>
-
-    <link href="default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 <body>
-    <input type="file" id="fileSelect" class="hidden" />
-
     <div class="container">
-
         <div class="section choose">
-            <button id="choose-btn"><span class="fa fa-image"></span> Select</button>
+            <div class="number">1</div>
+            <button class="btn btn-lg btn-primary" id="choose-btn"><span class="fa fa-image"></span> Select an Image</button>
         </div>
 
-        <div class="section preview-container">
+        <div class="section preview">
             <div id="preview-loader" class="loader hidden"><div class="spinner"></div></div>
+            <div class="info">Choose an image to preview.</div>
             <img id="preview" class="auto-image" height="300" />
         </div>
 
         <div class="section controls">
-            <button id="process-with">Process (With)</button>
-            <button id="process-without">Process (Without)</button>
+            <div class="number">2</div>
+            <button class="btn btn-lg btn-success" id="process-with">Process with Workers</button>
+            <button class="btn btn-lg btn-warning" id="process-without">Process without Workers</button>
         </div>
 
-        <div class="section result-container">
+        <div class="section result">
             <div id="result-loader" class="loader hidden"><div class="spinner"></div></div>
+            <div class="info">Colour image with or without web workers.</div>
             <canvas id="result"></canvas>
         </div>
-
     </div>
-
-
+    <input type="file" id="fileSelect" class="hidden" />
 </body>
 
 <script src="tools.js"></script>
-<script src="default.js"></script>
+<script src="app.js"></script>
 </html>

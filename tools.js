@@ -1,4 +1,5 @@
-﻿var processImage = function(data, colour) {
+﻿//Process image function to be use with and without a worker
+var processImage = function(data, colour) {
     for (var j = 0; j < data.height; j++) {
         for (var i = 0; i < data.width; i++) {
             var _index = (j * 4) * data.width + (i * 4);

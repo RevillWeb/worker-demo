@@ -5,18 +5,42 @@
     padding: 0;
     background-color: #E1E1E1;
 }
-.container {
-
-}
-.container .section {
+.section {
     text-align: center;
     position: relative;
+    margin: 10px;
 }
-.container .controls {
 
+.preview, .result {
+    background-color: #FFF;
+    border: solid 5px #CCC;
 }
-.choose {
-    height: 80px;
+
+.info {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    color: #999;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview.loaded .info, .result.loaded .info {
+    display: none;
+}
+
+.number {
+    background-color: #666;
+    width: 46px;
+    height: 46px;
+    float: left;
+    color: #FFF;
+    font-size: 30px;
+    border-radius: 50px;
+    line-height: 46px;
 }
 
 .loader {
@@ -31,6 +55,7 @@
     justify-content: center;
     align-items: center;
     font-size: 32px;
+    z-index: 100;
 }
 .loader.hidden {
     display: none;
