@@ -5,26 +5,32 @@
     <title>PictureWorker</title>
 
     <link href="default.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body>
+    <input type="file" id="fileSelect" class="hidden" />
 
-    <div>
-        <input type="file" id="fileSelect" />
-    </div>
+    <div class="container">
 
-    <div class="preview-container">
-        <div id="preview-loader" class="loader hidden"><div class="spinner"></div></div>
-        <img id="preview" class="auto-image" height="250" />
-    </div>
+        <div class="section choose">
+            <button id="choose-btn"><span class="fa fa-image"></span> Select</button>
+        </div>
 
-    <div class="controls">
-        <button id="process-with">Process (With)</button>
-        <button id="process-without">Process (Without)</button>
-    </div>
+        <div class="section preview-container">
+            <div id="preview-loader" class="loader hidden"><div class="spinner"></div></div>
+            <img id="preview" class="auto-image" height="300" />
+        </div>
 
-    <div class="result-container">
-        <div id="result-loader" class="loader hidden"><div class="spinner"></div></div>
-        <canvas id="result"></canvas>
+        <div class="section controls">
+            <button id="process-with">Process (With)</button>
+            <button id="process-without">Process (Without)</button>
+        </div>
+
+        <div class="section result-container">
+            <div id="result-loader" class="loader hidden"><div class="spinner"></div></div>
+            <canvas id="result"></canvas>
+        </div>
+
     </div>
 
 

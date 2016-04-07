@@ -3,7 +3,8 @@
 var $preview = document.querySelector("#preview");
 var $result = document.querySelector("#result");
 var $resultContainer = document.querySelector("#result-container");
-var $loader = document.querySelector("#loader");
+var $previewLoader = document.querySelector("#preview-loader");
+var $resultLoader = document.querySelector("#result-loader");
 var image = new Image();
 $preview.onload = function(){
     $result.width = $preview.width;
@@ -11,12 +12,20 @@ $preview.onload = function(){
 };
 
 var $fileSelect = document.querySelector("#fileSelect");
+var $chooseBtn = document.querySelector("#choose-btn");
+$chooseBtn.addEventListener("click", function(e){
+    $fileSelect.click();
+});
+
+
 $fileSelect.addEventListener("change", function(e){
+    $previewLoader.className = "loader";
     var file = e.target.files[0];
     var reader = new FileReader();
     reader.onload = function() {
         image.onload = function() {
             $preview.src = reader.result;
+            $previewLoader.className = "loader hidden";
         };
         image.src = reader.result;
     };
@@ -29,7 +38,7 @@ var process = function (workers) {
     if (image.src.length === 0) {
         return;
     }
-    $loader.className = "loader";
+    $resultLoader.className = "loader";
 
     var start = new Date();
 
@@ -52,7 +61,7 @@ var process = function (workers) {
             console.info("Process done with in " + (new Date() - start) + " ms");
             var resultContext = $result.getContext("2d");
             resultContext.drawImage($canvas, 0, 0, $preview.width, $preview.height);
-            $loader.className = "loader hidden";
+            $resultLoader.className = "loader hidden";
         }
     };
 
@@ -78,7 +87,7 @@ var process = function (workers) {
             resultContext.drawImage($canvas, 0, 0, $preview.width, $preview.height);
             if (index === segments) {
                 console.info("Process done without in " + (new Date() - start) + " ms");
-                $loader.className = "loader hidden";
+                $resultLoader.className = "loader hidden";
             }
         }
     }
